@@ -1,0 +1,485 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		58F6AEC6198EAA0900CC110B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F6AEC5198EAA0900CC110B /* Foundation.framework */; };
+		58F6AEC8198EAA0900CC110B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F6AEC7198EAA0900CC110B /* CoreGraphics.framework */; };
+		58F6AECA198EAA0900CC110B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F6AEC9198EAA0900CC110B /* UIKit.framework */; };
+		58F6AED0198EAA0900CC110B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 58F6AECE198EAA0900CC110B /* InfoPlist.strings */; };
+		58F6AED2198EAA0900CC110B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F6AED1198EAA0900CC110B /* main.m */; };
+		58F6AED6198EAA0900CC110B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F6AED5198EAA0900CC110B /* AppDelegate.m */; };
+		58F6AED9198EAA0900CC110B /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58F6AED7198EAA0900CC110B /* Main_iPhone.storyboard */; };
+		58F6AEDC198EAA0900CC110B /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58F6AEDA198EAA0900CC110B /* Main_iPad.storyboard */; };
+		58F6AEDF198EAA0900CC110B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F6AEDE198EAA0900CC110B /* ViewController.m */; };
+		58F6AEE1198EAA0900CC110B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58F6AEE0198EAA0900CC110B /* Images.xcassets */; };
+		58F6AEE8198EAA0900CC110B /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F6AEE7198EAA0900CC110B /* XCTest.framework */; };
+		58F6AEE9198EAA0900CC110B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F6AEC5198EAA0900CC110B /* Foundation.framework */; };
+		58F6AEEA198EAA0900CC110B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F6AEC9198EAA0900CC110B /* UIKit.framework */; };
+		58F6AEF2198EAA0900CC110B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 58F6AEF0198EAA0900CC110B /* InfoPlist.strings */; };
+		58F6AEF4198EAA0900CC110B /* SOR_UploaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F6AEF3198EAA0900CC110B /* SOR_UploaderTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		58F6AEEB198EAA0900CC110B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 58F6AEBA198EAA0900CC110B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 58F6AEC1198EAA0900CC110B;
+			remoteInfo = "SOR Uploader";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		58F6AEC2198EAA0900CC110B /* SOR Uploader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SOR Uploader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		58F6AEC5198EAA0900CC110B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		58F6AEC7198EAA0900CC110B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		58F6AEC9198EAA0900CC110B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		58F6AECD198EAA0900CC110B /* SOR Uploader-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SOR Uploader-Info.plist"; sourceTree = "<group>"; };
+		58F6AECF198EAA0900CC110B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		58F6AED1198EAA0900CC110B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		58F6AED3198EAA0900CC110B /* SOR Uploader-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SOR Uploader-Prefix.pch"; sourceTree = "<group>"; };
+		58F6AED4198EAA0900CC110B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		58F6AED5198EAA0900CC110B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		58F6AED8198EAA0900CC110B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		58F6AEDB198EAA0900CC110B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		58F6AEDD198EAA0900CC110B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		58F6AEDE198EAA0900CC110B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		58F6AEE0198EAA0900CC110B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		58F6AEE6198EAA0900CC110B /* SOR UploaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SOR UploaderTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		58F6AEE7198EAA0900CC110B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		58F6AEEF198EAA0900CC110B /* SOR UploaderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SOR UploaderTests-Info.plist"; sourceTree = "<group>"; };
+		58F6AEF1198EAA0900CC110B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		58F6AEF3198EAA0900CC110B /* SOR_UploaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SOR_UploaderTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		58F6AEBF198EAA0900CC110B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58F6AEC8198EAA0900CC110B /* CoreGraphics.framework in Frameworks */,
+				58F6AECA198EAA0900CC110B /* UIKit.framework in Frameworks */,
+				58F6AEC6198EAA0900CC110B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		58F6AEE3198EAA0900CC110B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58F6AEE8198EAA0900CC110B /* XCTest.framework in Frameworks */,
+				58F6AEEA198EAA0900CC110B /* UIKit.framework in Frameworks */,
+				58F6AEE9198EAA0900CC110B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		58F6AEB9198EAA0900CC110B = {
+			isa = PBXGroup;
+			children = (
+				58F6AECB198EAA0900CC110B /* SOR Uploader */,
+				58F6AEED198EAA0900CC110B /* SOR UploaderTests */,
+				58F6AEC4198EAA0900CC110B /* Frameworks */,
+				58F6AEC3198EAA0900CC110B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		58F6AEC3198EAA0900CC110B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				58F6AEC2198EAA0900CC110B /* SOR Uploader.app */,
+				58F6AEE6198EAA0900CC110B /* SOR UploaderTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		58F6AEC4198EAA0900CC110B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				58F6AEC5198EAA0900CC110B /* Foundation.framework */,
+				58F6AEC7198EAA0900CC110B /* CoreGraphics.framework */,
+				58F6AEC9198EAA0900CC110B /* UIKit.framework */,
+				58F6AEE7198EAA0900CC110B /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		58F6AECB198EAA0900CC110B /* SOR Uploader */ = {
+			isa = PBXGroup;
+			children = (
+				58F6AED4198EAA0900CC110B /* AppDelegate.h */,
+				58F6AED5198EAA0900CC110B /* AppDelegate.m */,
+				58F6AED7198EAA0900CC110B /* Main_iPhone.storyboard */,
+				58F6AEDA198EAA0900CC110B /* Main_iPad.storyboard */,
+				58F6AEDD198EAA0900CC110B /* ViewController.h */,
+				58F6AEDE198EAA0900CC110B /* ViewController.m */,
+				58F6AEE0198EAA0900CC110B /* Images.xcassets */,
+				58F6AECC198EAA0900CC110B /* Supporting Files */,
+			);
+			path = "SOR Uploader";
+			sourceTree = "<group>";
+		};
+		58F6AECC198EAA0900CC110B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				58F6AECD198EAA0900CC110B /* SOR Uploader-Info.plist */,
+				58F6AECE198EAA0900CC110B /* InfoPlist.strings */,
+				58F6AED1198EAA0900CC110B /* main.m */,
+				58F6AED3198EAA0900CC110B /* SOR Uploader-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		58F6AEED198EAA0900CC110B /* SOR UploaderTests */ = {
+			isa = PBXGroup;
+			children = (
+				58F6AEF3198EAA0900CC110B /* SOR_UploaderTests.m */,
+				58F6AEEE198EAA0900CC110B /* Supporting Files */,
+			);
+			path = "SOR UploaderTests";
+			sourceTree = "<group>";
+		};
+		58F6AEEE198EAA0900CC110B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				58F6AEEF198EAA0900CC110B /* SOR UploaderTests-Info.plist */,
+				58F6AEF0198EAA0900CC110B /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		58F6AEC1198EAA0900CC110B /* SOR Uploader */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 58F6AEF7198EAA0900CC110B /* Build configuration list for PBXNativeTarget "SOR Uploader" */;
+			buildPhases = (
+				58F6AEBE198EAA0900CC110B /* Sources */,
+				58F6AEBF198EAA0900CC110B /* Frameworks */,
+				58F6AEC0198EAA0900CC110B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SOR Uploader";
+			productName = "SOR Uploader";
+			productReference = 58F6AEC2198EAA0900CC110B /* SOR Uploader.app */;
+			productType = "com.apple.product-type.application";
+		};
+		58F6AEE5198EAA0900CC110B /* SOR UploaderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 58F6AEFA198EAA0900CC110B /* Build configuration list for PBXNativeTarget "SOR UploaderTests" */;
+			buildPhases = (
+				58F6AEE2198EAA0900CC110B /* Sources */,
+				58F6AEE3198EAA0900CC110B /* Frameworks */,
+				58F6AEE4198EAA0900CC110B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				58F6AEEC198EAA0900CC110B /* PBXTargetDependency */,
+			);
+			name = "SOR UploaderTests";
+			productName = "SOR UploaderTests";
+			productReference = 58F6AEE6198EAA0900CC110B /* SOR UploaderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		58F6AEBA198EAA0900CC110B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Justin Baumgartner";
+				TargetAttributes = {
+					58F6AEE5198EAA0900CC110B = {
+						TestTargetID = 58F6AEC1198EAA0900CC110B;
+					};
+				};
+			};
+			buildConfigurationList = 58F6AEBD198EAA0900CC110B /* Build configuration list for PBXProject "SOR Uploader" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 58F6AEB9198EAA0900CC110B;
+			productRefGroup = 58F6AEC3198EAA0900CC110B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				58F6AEC1198EAA0900CC110B /* SOR Uploader */,
+				58F6AEE5198EAA0900CC110B /* SOR UploaderTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		58F6AEC0198EAA0900CC110B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58F6AEDC198EAA0900CC110B /* Main_iPad.storyboard in Resources */,
+				58F6AEE1198EAA0900CC110B /* Images.xcassets in Resources */,
+				58F6AED9198EAA0900CC110B /* Main_iPhone.storyboard in Resources */,
+				58F6AED0198EAA0900CC110B /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		58F6AEE4198EAA0900CC110B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58F6AEF2198EAA0900CC110B /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		58F6AEBE198EAA0900CC110B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58F6AEDF198EAA0900CC110B /* ViewController.m in Sources */,
+				58F6AED6198EAA0900CC110B /* AppDelegate.m in Sources */,
+				58F6AED2198EAA0900CC110B /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		58F6AEE2198EAA0900CC110B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				58F6AEF4198EAA0900CC110B /* SOR_UploaderTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		58F6AEEC198EAA0900CC110B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 58F6AEC1198EAA0900CC110B /* SOR Uploader */;
+			targetProxy = 58F6AEEB198EAA0900CC110B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		58F6AECE198EAA0900CC110B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				58F6AECF198EAA0900CC110B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		58F6AED7198EAA0900CC110B /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				58F6AED8198EAA0900CC110B /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		58F6AEDA198EAA0900CC110B /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				58F6AEDB198EAA0900CC110B /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		58F6AEF0198EAA0900CC110B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				58F6AEF1198EAA0900CC110B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		58F6AEF5198EAA0900CC110B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		58F6AEF6198EAA0900CC110B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		58F6AEF8198EAA0900CC110B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SOR Uploader/SOR Uploader-Prefix.pch";
+				INFOPLIST_FILE = "SOR Uploader/SOR Uploader-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		58F6AEF9198EAA0900CC110B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SOR Uploader/SOR Uploader-Prefix.pch";
+				INFOPLIST_FILE = "SOR Uploader/SOR Uploader-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		58F6AEFB198EAA0900CC110B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SOR Uploader.app/SOR Uploader";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SOR Uploader/SOR Uploader-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "SOR UploaderTests/SOR UploaderTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		58F6AEFC198EAA0900CC110B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SOR Uploader.app/SOR Uploader";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SOR Uploader/SOR Uploader-Prefix.pch";
+				INFOPLIST_FILE = "SOR UploaderTests/SOR UploaderTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		58F6AEBD198EAA0900CC110B /* Build configuration list for PBXProject "SOR Uploader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58F6AEF5198EAA0900CC110B /* Debug */,
+				58F6AEF6198EAA0900CC110B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		58F6AEF7198EAA0900CC110B /* Build configuration list for PBXNativeTarget "SOR Uploader" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58F6AEF8198EAA0900CC110B /* Debug */,
+				58F6AEF9198EAA0900CC110B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		58F6AEFA198EAA0900CC110B /* Build configuration list for PBXNativeTarget "SOR UploaderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58F6AEFB198EAA0900CC110B /* Debug */,
+				58F6AEFC198EAA0900CC110B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 58F6AEBA198EAA0900CC110B /* Project object */;
+}
