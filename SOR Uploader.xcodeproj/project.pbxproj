@@ -22,6 +22,10 @@
 		58F6AEEA198EAA0900CC110B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F6AEC9198EAA0900CC110B /* UIKit.framework */; };
 		58F6AEF2198EAA0900CC110B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 58F6AEF0198EAA0900CC110B /* InfoPlist.strings */; };
 		58F6AEF4198EAA0900CC110B /* SOR_UploaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F6AEF3198EAA0900CC110B /* SOR_UploaderTests.m */; };
+		58F6AEFE198EAA4000CC110B /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F6AEFD198EAA4000CC110B /* DropboxSDK.framework */; };
+		58F6AEFF198EAA4000CC110B /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F6AEFD198EAA4000CC110B /* DropboxSDK.framework */; };
+		58F6AF01198EAAB900CC110B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F6AF00198EAAB900CC110B /* Security.framework */; };
+		58F6AF03198EAABE00CC110B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F6AF02198EAABE00CC110B /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +59,9 @@
 		58F6AEEF198EAA0900CC110B /* SOR UploaderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SOR UploaderTests-Info.plist"; sourceTree = "<group>"; };
 		58F6AEF1198EAA0900CC110B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		58F6AEF3198EAA0900CC110B /* SOR_UploaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SOR_UploaderTests.m; sourceTree = "<group>"; };
+		58F6AEFD198EAA4000CC110B /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxSDK.framework; sourceTree = "<group>"; };
+		58F6AF00198EAAB900CC110B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		58F6AF02198EAABE00CC110B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +69,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58F6AF03198EAABE00CC110B /* QuartzCore.framework in Frameworks */,
+				58F6AF01198EAAB900CC110B /* Security.framework in Frameworks */,
+				58F6AEFE198EAA4000CC110B /* DropboxSDK.framework in Frameworks */,
 				58F6AEC8198EAA0900CC110B /* CoreGraphics.framework in Frameworks */,
 				58F6AECA198EAA0900CC110B /* UIKit.framework in Frameworks */,
 				58F6AEC6198EAA0900CC110B /* Foundation.framework in Frameworks */,
@@ -72,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58F6AEFF198EAA4000CC110B /* DropboxSDK.framework in Frameworks */,
 				58F6AEE8198EAA0900CC110B /* XCTest.framework in Frameworks */,
 				58F6AEEA198EAA0900CC110B /* UIKit.framework in Frameworks */,
 				58F6AEE9198EAA0900CC110B /* Foundation.framework in Frameworks */,
@@ -103,6 +114,9 @@
 		58F6AEC4198EAA0900CC110B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				58F6AF02198EAABE00CC110B /* QuartzCore.framework */,
+				58F6AF00198EAAB900CC110B /* Security.framework */,
+				58F6AEFD198EAA4000CC110B /* DropboxSDK.framework */,
 				58F6AEC5198EAA0900CC110B /* Foundation.framework */,
 				58F6AEC7198EAA0900CC110B /* CoreGraphics.framework */,
 				58F6AEC9198EAA0900CC110B /* UIKit.framework */,
@@ -390,9 +404,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SOR Uploader/SOR Uploader-Prefix.pch";
 				INFOPLIST_FILE = "SOR Uploader/SOR Uploader-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -403,9 +422,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SOR Uploader/SOR Uploader-Prefix.pch";
 				INFOPLIST_FILE = "SOR Uploader/SOR Uploader-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -419,6 +443,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SOR Uploader/SOR Uploader-Prefix.pch";
@@ -441,6 +466,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SOR Uploader/SOR Uploader-Prefix.pch";
