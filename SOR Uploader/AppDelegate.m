@@ -10,10 +10,39 @@
 
 @implementation AppDelegate
 
+
+#pragma mark - DBSessionDelegate methods
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    NSString *appKey = @"03bg55jufvpq4dl";
+	NSString *appSecret = @"xpga8cm8qey1x4f";
+	NSString *root = kDBRootDropbox;
+    
+    DBSession *dropboxSession = [[DBSession alloc] initWithAppKey:appKey
+                                                        appSecret:appSecret
+                                                             root:root];
+    [DBSession setSharedSession:dropboxSession];
+    dropboxSession.delegate = self;
+    [DBRequest setNetworkRequestDelegate:self];
+    
     return YES;
+}
+
+- (BOOL)application:(UIApplication *)app
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)source
+         annotation:(id)annotation
+{
+    if ([[DBSession sharedSession] handleOpenURL:url]) {
+        if ([[DBSession sharedSession] isLinked]) {
+            NSLog(@"App linked successfully!");
+            // At this point you can start making API calls
+        }
+        return YES;
+    }
+    // Add whatever other url handling code your app requires here
+    return NO;
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -41,6 +70,38 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+
+#pragma mark - DBSessionDelegate methods
+
+- (void)sessionDidReceiveAuthorizationFailure:(DBSession*)session
+                                       userId:(NSString *)userId
+{
+	[[[UIAlertView alloc] initWithTitle:@"Dropbox Session Ended"
+                                message:@"Do you want to relink?"
+                               delegate:self
+                      cancelButtonTitle:@"Cancel"
+                      otherButtonTitles:@"Relink", nil] show];
+}
+
+
+#pragma mark - DBNetworkRequestDelegate methods
+
+static int outstandingRequests;
+
+- (void)networkRequestStarted {
+	outstandingRequests++;
+	if (outstandingRequests == 1) {
+		[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+	}
+}
+
+- (void)networkRequestStopped {
+	outstandingRequests--;
+	if (outstandingRequests == 0) {
+		[[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+	}
 }
 
 @end
