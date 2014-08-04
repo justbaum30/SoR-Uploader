@@ -35,10 +35,14 @@
                                                                              action:@selector(linkDropbox)];
     
     // Setup dropbox
-    if (![[DBSession sharedSession] isLinked]) {
+    if ([[DBSession sharedSession] isLinked]) {
+        restClient = [[DBRestClient alloc] initWithSession:[DBSession sharedSession]];
+        restClient.delegate = self;
+    }
+    else {
+        restClient = nil;
         [[DBSession sharedSession] linkFromController:self];
     }
-    
     [self updateButtons];
 }
 
@@ -73,14 +77,71 @@
 
 - (void)isDropboxLinked:(id)sender
 {
-    // Is linked
     if ([[sender object] boolValue]) {
-        
+        restClient = [[DBRestClient alloc] initWithSession:[DBSession sharedSession]];
+        restClient.delegate = self;
     }
-    // Not linked
     else {
-        
+        restClient = nil;
     }
+}
+
+- (IBAction)takePicture:(id)sender
+{
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+    
+    // Set correct source type of image
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        [imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
+    }
+    else {
+        [imagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+    }
+    
+    [imagePicker setDelegate:self];
+    
+    // Show image picker
+    [self presentViewController:imagePicker animated:YES completion:nil];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker
+didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    // Get picked image
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    NSData *imageData = UIImageJPEGRepresentation(image, 0.85);
+    
+    // Write to temp folder
+    NSURL *tmpDirURL = [NSURL fileURLWithPath:NSTemporaryDirectory() isDirectory:YES];
+    NSURL *fileURL = [[tmpDirURL URLByAppendingPathComponent:@"SoR-image"] URLByAppendingPathExtension:@"jpg"];
+    [imageData writeToURL:fileURL atomically:YES];
+    
+    // Upload to dropbox
+    [restClient uploadFile:@"SoR-image.jpg"
+                    toPath:@"/"
+             withParentRev:nil
+                  fromPath:fileURL.path];
+    
+    // Close image picker
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)recordAudio:(id)sender
+{
+    
+}
+
+- (void)restClient:(DBRestClient *)client
+      uploadedFile:(NSString *)destPath
+              from:(NSString *)srcPath
+          metadata:(DBMetadata *)metadata
+{
+    NSLog(@"File uploaded successfully to path: %@", metadata.path);
+}
+
+- (void)restClient:(DBRestClient *)client uploadFileFailedWithError:(NSError *)error
+{
+    NSLog(@"File upload failed with error: %@", error);
 }
 
 @end

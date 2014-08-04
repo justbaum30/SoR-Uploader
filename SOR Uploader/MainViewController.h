@@ -9,9 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <DropboxSDK/DropboxSDK.h>
 
-@interface MainViewController : UIViewController <DBRestClientDelegate>
+@interface MainViewController : UIViewController <DBRestClientDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *addPhotoButton;
 @property (weak, nonatomic) IBOutlet UIButton *addMileageButton;
+
+- (IBAction)takePicture:(id)sender;
+- (IBAction)recordAudio:(id)sender;
 
 @end
