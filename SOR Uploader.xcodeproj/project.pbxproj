@@ -15,7 +15,6 @@
 		58F6AED6198EAA0900CC110B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F6AED5198EAA0900CC110B /* AppDelegate.m */; };
 		58F6AED9198EAA0900CC110B /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58F6AED7198EAA0900CC110B /* Main_iPhone.storyboard */; };
 		58F6AEDC198EAA0900CC110B /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 58F6AEDA198EAA0900CC110B /* Main_iPad.storyboard */; };
-		58F6AEDF198EAA0900CC110B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F6AEDE198EAA0900CC110B /* ViewController.m */; };
 		58F6AEE1198EAA0900CC110B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58F6AEE0198EAA0900CC110B /* Images.xcassets */; };
 		58F6AEE8198EAA0900CC110B /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F6AEE7198EAA0900CC110B /* XCTest.framework */; };
 		58F6AEE9198EAA0900CC110B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F6AEC5198EAA0900CC110B /* Foundation.framework */; };
@@ -26,6 +25,8 @@
 		58F6AEFF198EAA4000CC110B /* DropboxSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F6AEFD198EAA4000CC110B /* DropboxSDK.framework */; };
 		58F6AF01198EAAB900CC110B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F6AF00198EAAB900CC110B /* Security.framework */; };
 		58F6AF03198EAABE00CC110B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F6AF02198EAABE00CC110B /* QuartzCore.framework */; };
+		58F6AF0A198F1FDB00CC110B /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F6AF09198F1FDB00CC110B /* MainViewController.m */; };
+		58F6AF0B198F1FDB00CC110B /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58F6AF09198F1FDB00CC110B /* MainViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,8 +52,6 @@
 		58F6AED5198EAA0900CC110B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		58F6AED8198EAA0900CC110B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		58F6AEDB198EAA0900CC110B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		58F6AEDD198EAA0900CC110B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		58F6AEDE198EAA0900CC110B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		58F6AEE0198EAA0900CC110B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		58F6AEE6198EAA0900CC110B /* SOR UploaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SOR UploaderTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		58F6AEE7198EAA0900CC110B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -62,6 +61,8 @@
 		58F6AEFD198EAA4000CC110B /* DropboxSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DropboxSDK.framework; sourceTree = "<group>"; };
 		58F6AF00198EAAB900CC110B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		58F6AF02198EAABE00CC110B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		58F6AF08198F1FDB00CC110B /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		58F6AF09198F1FDB00CC110B /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,10 +131,10 @@
 			children = (
 				58F6AED4198EAA0900CC110B /* AppDelegate.h */,
 				58F6AED5198EAA0900CC110B /* AppDelegate.m */,
+				58F6AF08198F1FDB00CC110B /* MainViewController.h */,
+				58F6AF09198F1FDB00CC110B /* MainViewController.m */,
 				58F6AED7198EAA0900CC110B /* Main_iPhone.storyboard */,
 				58F6AEDA198EAA0900CC110B /* Main_iPad.storyboard */,
-				58F6AEDD198EAA0900CC110B /* ViewController.h */,
-				58F6AEDE198EAA0900CC110B /* ViewController.m */,
 				58F6AEE0198EAA0900CC110B /* Images.xcassets */,
 				58F6AECC198EAA0900CC110B /* Supporting Files */,
 			);
@@ -267,8 +268,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58F6AEDF198EAA0900CC110B /* ViewController.m in Sources */,
 				58F6AED6198EAA0900CC110B /* AppDelegate.m in Sources */,
+				58F6AF0A198F1FDB00CC110B /* MainViewController.m in Sources */,
 				58F6AED2198EAA0900CC110B /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				58F6AEF4198EAA0900CC110B /* SOR_UploaderTests.m in Sources */,
+				58F6AF0B198F1FDB00CC110B /* MainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,7 +414,9 @@
 				GCC_PREFIX_HEADER = "SOR Uploader/SOR Uploader-Prefix.pch";
 				INFOPLIST_FILE = "SOR Uploader/SOR Uploader-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -430,7 +434,9 @@
 				GCC_PREFIX_HEADER = "SOR Uploader/SOR Uploader-Prefix.pch";
 				INFOPLIST_FILE = "SOR Uploader/SOR Uploader-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

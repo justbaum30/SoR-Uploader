@@ -11,7 +11,7 @@
 @implementation AppDelegate
 
 
-#pragma mark - DBSessionDelegate methods
+#pragma mark - Application lifecycle methods
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -35,10 +35,9 @@
          annotation:(id)annotation
 {
     if ([[DBSession sharedSession] handleOpenURL:url]) {
-        if ([[DBSession sharedSession] isLinked]) {
-            NSLog(@"App linked successfully!");
-            // At this point you can start making API calls
-        }
+        NSNumber *isDropboxLinked = [NSNumber numberWithBool:[[DBSession sharedSession] isLinked]];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"isDropboxLinked"
+                                                            object:isDropboxLinked];
         return YES;
     }
     // Add whatever other url handling code your app requires here
