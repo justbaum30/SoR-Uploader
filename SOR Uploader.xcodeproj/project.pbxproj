@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		58C401B6199078DD009EF188 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58C401B5199078DD009EF188 /* SettingsViewController.m */; };
+		58C401B919908201009EF188 /* UploadProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 58C401B819908201009EF188 /* UploadProfile.m */; };
+		58D105FB1991C64B0061D019 /* DefaultSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 58D105FA1991C64B0061D019 /* DefaultSettings.plist */; };
 		58F6AEC6198EAA0900CC110B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F6AEC5198EAA0900CC110B /* Foundation.framework */; };
 		58F6AEC8198EAA0900CC110B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F6AEC7198EAA0900CC110B /* CoreGraphics.framework */; };
 		58F6AECA198EAA0900CC110B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F6AEC9198EAA0900CC110B /* UIKit.framework */; };
@@ -40,6 +43,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		58C401B4199078DD009EF188 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		58C401B5199078DD009EF188 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		58C401B719908201009EF188 /* UploadProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadProfile.h; sourceTree = "<group>"; };
+		58C401B819908201009EF188 /* UploadProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadProfile.m; sourceTree = "<group>"; };
+		58D105FA1991C64B0061D019 /* DefaultSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = DefaultSettings.plist; sourceTree = "<group>"; };
 		58F6AEC2198EAA0900CC110B /* SOR Uploader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SOR Uploader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		58F6AEC5198EAA0900CC110B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		58F6AEC7198EAA0900CC110B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -133,6 +141,10 @@
 				58F6AED5198EAA0900CC110B /* AppDelegate.m */,
 				58F6AF08198F1FDB00CC110B /* MainViewController.h */,
 				58F6AF09198F1FDB00CC110B /* MainViewController.m */,
+				58C401B4199078DD009EF188 /* SettingsViewController.h */,
+				58C401B5199078DD009EF188 /* SettingsViewController.m */,
+				58C401B719908201009EF188 /* UploadProfile.h */,
+				58C401B819908201009EF188 /* UploadProfile.m */,
 				58F6AED7198EAA0900CC110B /* Main_iPhone.storyboard */,
 				58F6AEDA198EAA0900CC110B /* Main_iPad.storyboard */,
 				58F6AEE0198EAA0900CC110B /* Images.xcassets */,
@@ -148,6 +160,7 @@
 				58F6AECE198EAA0900CC110B /* InfoPlist.strings */,
 				58F6AED1198EAA0900CC110B /* main.m */,
 				58F6AED3198EAA0900CC110B /* SOR Uploader-Prefix.pch */,
+				58D105FA1991C64B0061D019 /* DefaultSettings.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -246,6 +259,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58D105FB1991C64B0061D019 /* DefaultSettings.plist in Resources */,
 				58F6AEDC198EAA0900CC110B /* Main_iPad.storyboard in Resources */,
 				58F6AEE1198EAA0900CC110B /* Images.xcassets in Resources */,
 				58F6AED9198EAA0900CC110B /* Main_iPhone.storyboard in Resources */,
@@ -271,6 +285,8 @@
 				58F6AED6198EAA0900CC110B /* AppDelegate.m in Sources */,
 				58F6AF0A198F1FDB00CC110B /* MainViewController.m in Sources */,
 				58F6AED2198EAA0900CC110B /* main.m in Sources */,
+				58C401B6199078DD009EF188 /* SettingsViewController.m in Sources */,
+				58C401B919908201009EF188 /* UploadProfile.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,6 +518,7 @@
 				58F6AEF9198EAA0900CC110B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		58F6AEFA198EAA0900CC110B /* Build configuration list for PBXNativeTarget "SOR UploaderTests" */ = {
 			isa = XCConfigurationList;
@@ -510,6 +527,7 @@
 				58F6AEFC198EAA0900CC110B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

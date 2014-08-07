@@ -29,11 +29,6 @@
                                                  name:@"isDropboxLinked"
                                                object:nil];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Link"
-                                                                              style:UIBarButtonItemStylePlain
-                                                                             target:self
-                                                                             action:@selector(linkDropbox)];
-    
     // Setup dropbox
     if ([[DBSession sharedSession] isLinked]) {
         restClient = [[DBRestClient alloc] initWithSession:[DBSession sharedSession]];
@@ -57,7 +52,7 @@
     BOOL isLinked = [[DBSession sharedSession] isLinked];
     addPhotoButton.enabled = isLinked;
     addMileageButton.enabled = isLinked;
-    self.navigationItem.rightBarButtonItem.title = isLinked ? @"Unlink" : @"Link";
+    //self.navigationItem.rightBarButtonItem.title = isLinked ? @"Unlink" : @"Link";
 }
 
 - (void)linkDropbox {
