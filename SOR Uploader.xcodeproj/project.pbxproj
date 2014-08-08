@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5874029A1994696600708EAF /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 587402991994696600708EAF /* EditProfileViewController.m */; };
 		58C401B6199078DD009EF188 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58C401B5199078DD009EF188 /* SettingsViewController.m */; };
 		58C401B919908201009EF188 /* UploadProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 58C401B819908201009EF188 /* UploadProfile.m */; };
-		58D105FB1991C64B0061D019 /* DefaultSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 58D105FA1991C64B0061D019 /* DefaultSettings.plist */; };
 		58F6AEC6198EAA0900CC110B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F6AEC5198EAA0900CC110B /* Foundation.framework */; };
 		58F6AEC8198EAA0900CC110B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F6AEC7198EAA0900CC110B /* CoreGraphics.framework */; };
 		58F6AECA198EAA0900CC110B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F6AEC9198EAA0900CC110B /* UIKit.framework */; };
@@ -43,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		587402981994696600708EAF /* EditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProfileViewController.h; sourceTree = "<group>"; };
+		587402991994696600708EAF /* EditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
 		58C401B4199078DD009EF188 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		58C401B5199078DD009EF188 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		58C401B719908201009EF188 /* UploadProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadProfile.h; sourceTree = "<group>"; };
@@ -143,6 +145,8 @@
 				58F6AF09198F1FDB00CC110B /* MainViewController.m */,
 				58C401B4199078DD009EF188 /* SettingsViewController.h */,
 				58C401B5199078DD009EF188 /* SettingsViewController.m */,
+				587402981994696600708EAF /* EditProfileViewController.h */,
+				587402991994696600708EAF /* EditProfileViewController.m */,
 				58C401B719908201009EF188 /* UploadProfile.h */,
 				58C401B819908201009EF188 /* UploadProfile.m */,
 				58F6AED7198EAA0900CC110B /* Main_iPhone.storyboard */,
@@ -259,7 +263,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58D105FB1991C64B0061D019 /* DefaultSettings.plist in Resources */,
 				58F6AEDC198EAA0900CC110B /* Main_iPad.storyboard in Resources */,
 				58F6AEE1198EAA0900CC110B /* Images.xcassets in Resources */,
 				58F6AED9198EAA0900CC110B /* Main_iPhone.storyboard in Resources */,
@@ -284,6 +287,7 @@
 			files = (
 				58F6AED6198EAA0900CC110B /* AppDelegate.m in Sources */,
 				58F6AF0A198F1FDB00CC110B /* MainViewController.m in Sources */,
+				5874029A1994696600708EAF /* EditProfileViewController.m in Sources */,
 				58F6AED2198EAA0900CC110B /* main.m in Sources */,
 				58C401B6199078DD009EF188 /* SettingsViewController.m in Sources */,
 				58C401B919908201009EF188 /* UploadProfile.m in Sources */,

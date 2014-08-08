@@ -8,6 +8,7 @@
 
 #import "SettingsViewController.h"
 #import "UploadProfile.h"
+#import "EditProfileViewController.h"
 
 NSString * const UploadProfilesKey = @"UploadProfiles";
 
@@ -71,9 +72,11 @@ NSString * const UploadProfilesKey = @"UploadProfiles";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == 0) {
+        return uploadProfiles.count;
+    }
+    else {
         return 1;
     }
-    return uploadProfiles.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -82,13 +85,13 @@ NSString * const UploadProfilesKey = @"UploadProfiles";
                                                             forIndexPath:indexPath];
     
     if (indexPath.section == 0) {
-        [[cell textLabel] setText:@"Link Account"];
-        [cell setAccessoryType:UITableViewCellAccessoryCheckmark];
-    }
-    else {
         UploadProfile *profile = [uploadProfiles objectAtIndex:indexPath.row];
         [[cell textLabel] setText:profile.name];
         [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+    }
+    else {
+        [[cell textLabel] setText:@"Link Account"];
+        [cell setAccessoryType:UITableViewCellAccessoryNone];
     }
     
     return cell;
@@ -97,10 +100,20 @@ NSString * const UploadProfilesKey = @"UploadProfiles";
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     if (section == 0) {
-        return @"Dropbox Account Settings";
+        return @"Upload Profiles";
     }
     else {
-        return @"Upload Profiles";
+        return @"Account Settings";
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0) {
+        [self performSegueWithIdentifier:@"Test" sender:self];
+    }
+    else {
+        
     }
 }
 
@@ -127,9 +140,11 @@ NSString * const UploadProfilesKey = @"UploadProfiles";
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
+        return YES;
+    }
+    else {
         return NO;
     }
-    return YES;
 }
 
 // Override to support editing the table view.
@@ -158,7 +173,13 @@ NSString * const UploadProfilesKey = @"UploadProfiles";
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    
+    if ([segue.identifier isEqualToString:@"Test"]) {
+        int selectedRow = [self.tableView indexPathForSelectedRow].row;
+        UploadProfile *profile = [uploadProfiles objectAtIndex:selectedRow];
+        
+        EditProfileViewController *editProfile = (EditProfileViewController *)segue.destinationViewController;
+        [editProfile setProfile:profile];
+    }
 }
 
 @end
