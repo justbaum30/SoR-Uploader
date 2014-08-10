@@ -30,7 +30,7 @@
                     <navigationItem key="navigationItem" title="Settings" id="nEy-3B-g6f"/>
                     <connections>
                         <outlet property="tableView" destination="k1o-rI-aTp" id="1Mt-Ip-XcC"/>
-                        <segue destination="oXn-us-B9y" kind="push" identifier="Test" id="XRR-Ii-TtM"/>
+                        <segue destination="s5f-wU-jRc" kind="modal" identifier="Test" id="XRR-Ii-TtM"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="URb-dO-Q83" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -112,7 +112,18 @@
                             <outlet property="delegate" destination="oXn-us-B9y" id="uYv-zx-5Yx"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Edit Profile" id="wZf-K0-juN"/>
+                    <navigationItem key="navigationItem" title="Edit Profile" id="wZf-K0-juN">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="N0H-mb-jKh">
+                            <connections>
+                                <action selector="cancelEdit:" destination="oXn-us-B9y" id="4U8-YX-b8k"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="6Hb-0i-i2g">
+                            <connections>
+                                <action selector="saveEdit:" destination="oXn-us-B9y" id="xkL-Hi-Sje"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mileagePathTextField" destination="LDb-px-Nfc" id="XlN-rL-IEv"/>
                         <outlet property="nameTextField" destination="sru-qM-eJv" id="k2g-hx-mcD"/>
@@ -121,7 +132,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8bq-vT-yAZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="798" y="-859"/>
+            <point key="canvasLocation" x="1324" y="-859"/>
         </scene>
         <!--Main View Controller - SoR Uploader-->
         <scene sceneID="ufC-wZ-h7g">
@@ -193,6 +204,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dHd-TW-Qem" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-811" y="-475"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ZKB-V4-rDg">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="s5f-wU-jRc" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NK5-CP-Ydo">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="oXn-us-B9y" kind="relationship" relationship="rootViewController" id="s0M-q2-efb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t19-qO-WQx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="824" y="-859"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

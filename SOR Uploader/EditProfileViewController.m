@@ -37,10 +37,15 @@
     }
 }
 
-- (void)didReceiveMemoryWarning
+- (IBAction)cancelEdit:(id)sender
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)saveEdit:(id)sender
+{
+    self.profileWasSaved();
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 /*

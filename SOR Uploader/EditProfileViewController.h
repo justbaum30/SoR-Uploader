@@ -17,6 +17,10 @@
 @property (weak, nonatomic) IBOutlet UITextField *receiptPathTextField;
 @property (weak, nonatomic) IBOutlet UITextField *mileagePathTextField;
 
+@property (nonatomic, copy) void (^profileWasSaved)();
+
 - (id)initWithUploadProfile:(UploadProfile *)profile;
+- (IBAction)cancelEdit:(id)sender;
+- (IBAction)saveEdit:(id)sender;
 
 @end

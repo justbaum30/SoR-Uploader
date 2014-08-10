@@ -8,43 +8,22 @@
 
 #import "SettingsViewController.h"
 #import "UploadProfile.h"
+#import "UploadProfileStore.h"
 #import "EditProfileViewController.h"
-
-NSString * const UploadProfilesKey = @"UploadProfiles";
 
 @interface SettingsViewController ()
 {
-    NSMutableArray *uploadProfiles;
+    
 }
 @end
 
 @implementation SettingsViewController
 
-
-+ (void)initialize
-{
-    UploadProfile *profile1 = [[UploadProfile alloc] initWithName:@"Sons of Realty"
-                                                     ReceiptPath:@"/SoR-Receipt/"
-                                                     MileagePath:@"/SoR-Mileage/"];
-    
-    UploadProfile *profile2 = [[UploadProfile alloc] initWithName:@"Brecken Construction"
-                                                      ReceiptPath:@"/Brecken-Receipt/"
-                                                      MileagePath:@"/Brecken-Mileage/"];
-    
-    NSArray *profiles = [[NSArray alloc] initWithObjects:profile1, profile2, nil];
-    NSData *encodedProfiles = [NSKeyedArchiver archivedDataWithRootObject:profiles];
-    NSDictionary *defaults = [NSDictionary dictionaryWithObject:encodedProfiles forKey:UploadProfilesKey];
-    
-    [[NSUserDefaults standardUserDefaults] registerDefaults:defaults];
-}
-
 - (id)initWithCoder:(NSCoder *)decoder
 {
     self = [super initWithCoder:decoder];
     if (self) {
-        NSData *encodedProfiles = [[NSUserDefaults standardUserDefaults] objectForKey:UploadProfilesKey];
-        uploadProfiles = [NSKeyedUnarchiver unarchiveObjectWithData:encodedProfiles];
-        uploadProfiles = uploadProfiles.mutableCopy;
+        
     }
     return self;
 }
@@ -72,7 +51,7 @@ NSString * const UploadProfilesKey = @"UploadProfiles";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == 0) {
-        return uploadProfiles.count;
+        return [[UploadProfileStore sharedStore] allProfiles].count;
     }
     else {
         return 1;
@@ -85,7 +64,7 @@ NSString * const UploadProfilesKey = @"UploadProfiles";
                                                             forIndexPath:indexPath];
     
     if (indexPath.section == 0) {
-        UploadProfile *profile = [uploadProfiles objectAtIndex:indexPath.row];
+        UploadProfile *profile = [[[UploadProfileStore sharedStore] allProfiles] objectAtIndex:indexPath.row];
         [[cell textLabel] setText:profile.name];
         [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     }
@@ -125,7 +104,7 @@ NSString * const UploadProfilesKey = @"UploadProfiles";
         UIBarButtonItem *addButton =
             [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                                           target:self
-                                                          action:@selector(addItem:)];
+                                                          action:@selector(addProfile:)];
         
         self.navigationItem.leftBarButtonItem = self.editButtonItem;
         self.navigationItem.rightBarButtonItem = addButton;
@@ -150,21 +129,25 @@ NSString * const UploadProfilesKey = @"UploadProfiles";
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [uploadProfiles removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:@[indexPath]
-                         withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        UploadProfile *newProfile = [[UploadProfile alloc] initWithName:@"New Profile"
-                                                            ReceiptPath:@"/"
-                                                            MileagePath:@"/"];
-        [uploadProfiles addObject:newProfile];
-        NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:indexPath.row + 1 inSection:1];
-        [tableView insertRowsAtIndexPaths:@[newIndexPath]
-                         withRowAnimation:UITableViewRowAnimationFade];
-    }   
+    // Delete logic
+    [[UploadProfileStore sharedStore] removeProfileAtIndex:indexPath.row];
+    [tableView beginUpdates];
+    [tableView deleteRowsAtIndexPaths:@[indexPath]
+                     withRowAnimation:UITableViewRowAnimationAutomatic];
+    [tableView endUpdates];
+}
+
+- (void)addProfile:(id)sender
+{
+    UploadProfile *newProfile = [[UploadProfile alloc] initWithName:@"New Profile"
+                                                        ReceiptPath:@"/"
+                                                        MileagePath:@"/"];
+    [[UploadProfileStore sharedStore] addProfile:newProfile];
+    
+    NSUInteger newRow = [[UploadProfileStore sharedStore] allProfiles].count - 1;
+    NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:newRow inSection:0];
+    [self.tableView insertRowsAtIndexPaths:@[newIndexPath]
+                          withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 
@@ -175,10 +158,15 @@ NSString * const UploadProfilesKey = @"UploadProfiles";
 {
     if ([segue.identifier isEqualToString:@"Test"]) {
         int selectedRow = [self.tableView indexPathForSelectedRow].row;
-        UploadProfile *profile = [uploadProfiles objectAtIndex:selectedRow];
+        UploadProfile *profile = [[[UploadProfileStore sharedStore] allProfiles] objectAtIndex:selectedRow];
         
-        EditProfileViewController *editProfile = (EditProfileViewController *)segue.destinationViewController;
-        [editProfile setProfile:profile];
+        UINavigationController *navViewCtrl = (UINavigationController *)segue.destinationViewController;
+        EditProfileViewController *editViewCtrl = (EditProfileViewController *)navViewCtrl.topViewController;
+        
+        [editViewCtrl setProfile:profile];
+        [editViewCtrl setProfileWasSaved: ^() {
+            NSLog(@"Reload data now.");
+        }];
     }
 }
 
