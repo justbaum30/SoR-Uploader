@@ -11,6 +11,8 @@
 #import "UploadProfileStore.h"
 #import "EditProfileViewController.h"
 
+NSString * const EditProfileSegue = @"EditProfileSegue";
+
 @interface SettingsViewController ()
 {
     
@@ -32,10 +34,6 @@
 {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
@@ -44,7 +42,6 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
     return 2;
 }
 
@@ -89,7 +86,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
-        [self performSegueWithIdentifier:@"Test" sender:self];
+        [self performSegueWithIdentifier:EditProfileSegue sender:self];
     }
     else {
         
@@ -115,7 +112,6 @@
     }
 }
 
-// Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
@@ -126,7 +122,6 @@
     }
 }
 
-// Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Delete logic
@@ -153,10 +148,9 @@
 
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"Test"]) {
+    if ([segue.identifier isEqualToString:EditProfileSegue]) {
         int selectedRow = [self.tableView indexPathForSelectedRow].row;
         UploadProfile *profile = [[[UploadProfileStore sharedStore] allProfiles] objectAtIndex:selectedRow];
         
@@ -165,7 +159,7 @@
         
         [editViewCtrl setProfile:profile];
         [editViewCtrl setProfileWasSaved: ^() {
-            NSLog(@"Reload data now.");
+            [self.tableView reloadData];
         }];
     }
 }

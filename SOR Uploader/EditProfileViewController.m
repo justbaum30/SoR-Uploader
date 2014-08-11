@@ -8,6 +8,7 @@
 
 #import "EditProfileViewController.h"
 #import "UploadProfile.h"
+#import "UploadProfileStore.h"
 
 @interface EditProfileViewController ()
 
@@ -18,6 +19,7 @@
 @synthesize profile, nameTextField, receiptPathTextField, mileagePathTextField;
 
 - (id)initWithUploadProfile:(UploadProfile *)aProfile
+                    AtIndex:(NSUInteger)index
 {
     self = [super init];
     if (self) {
@@ -35,6 +37,11 @@
         [receiptPathTextField setText:profile.receiptPath];
         [mileagePathTextField setText:profile.mileagePath];
     }
+    
+    UITapGestureRecognizer *gestureRecognizer =
+        [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                action:@selector(hideKeyboard)];
+    [self.tableView addGestureRecognizer:gestureRecognizer];
 }
 
 - (IBAction)cancelEdit:(id)sender
@@ -44,8 +51,30 @@
 
 - (IBAction)saveEdit:(id)sender
 {
+    NSUInteger index = [[[UploadProfileStore sharedStore] allProfiles] indexOfObject:profile];
+    profile.name = [nameTextField text];
+    profile.receiptPath = [receiptPathTextField text];
+    profile.mileagePath = [mileagePathTextField text];
+    
+    [[UploadProfileStore sharedStore] updateProfile:profile
+                                            atIndex:index];
+    
     self.profileWasSaved();
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+#pragma mark - TextField
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+- (void)hideKeyboard
+{
+    [self.view endEditing:YES];
 }
 
 /*

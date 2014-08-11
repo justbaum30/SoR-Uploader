@@ -30,7 +30,7 @@
                     <navigationItem key="navigationItem" title="Settings" id="nEy-3B-g6f"/>
                     <connections>
                         <outlet property="tableView" destination="k1o-rI-aTp" id="1Mt-Ip-XcC"/>
-                        <segue destination="s5f-wU-jRc" kind="modal" identifier="Test" id="XRR-Ii-TtM"/>
+                        <segue destination="s5f-wU-jRc" kind="modal" identifier="EditProfileSegue" id="XRR-Ii-TtM"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="URb-dO-Q83" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -60,6 +60,9 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="oXn-us-B9y" id="57G-Hb-O6L"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -80,6 +83,9 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="oXn-us-B9y" id="5QQ-hv-xgF"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -100,6 +106,9 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="oXn-us-B9y" id="oow-YQ-rgm"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                         </tableViewCellContentView>

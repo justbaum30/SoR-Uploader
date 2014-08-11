@@ -10,7 +10,7 @@
 
 @class UploadProfile;
 
-@interface EditProfileViewController : UITableViewController
+@interface EditProfileViewController : UITableViewController <UITextFieldDelegate>
 
 @property (weak) UploadProfile *profile;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
@@ -19,7 +19,8 @@
 
 @property (nonatomic, copy) void (^profileWasSaved)();
 
-- (id)initWithUploadProfile:(UploadProfile *)profile;
+- (id)initWithUploadProfile:(UploadProfile *)profile
+                    AtIndex:(NSUInteger)index;;
 - (IBAction)cancelEdit:(id)sender;
 - (IBAction)saveEdit:(id)sender;
 
