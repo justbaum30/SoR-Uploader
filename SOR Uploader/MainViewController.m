@@ -29,8 +29,8 @@
     
     // Watch for dropbox link change
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(isDropboxLinked:)
-                                                 name:@"isDropboxLinked"
+                                             selector:@selector(dropboxLinkChanged:)
+                                                 name:@"dropboxLinkChanged"
                                                object:nil];
     
     // Setup dropbox
@@ -42,12 +42,13 @@
         restClient = nil;
         [[DBSession sharedSession] linkFromController:self];
     }
-    [self updateButtons];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    // Update enabled values
     [self updateButtons];
     
     // Setup profile picker
@@ -58,28 +59,11 @@
 
 - (void)updateButtons
 {
-    BOOL isLinked = [[DBSession sharedSession] isLinked];
-    addPhotoButton.enabled = isLinked;
-    addMileageButton.enabled = isLinked;
-    //self.navigationItem.rightBarButtonItem.title = isLinked ? @"Unlink" : @"Link";
+    addPhotoButton.enabled = [[DBSession sharedSession] isLinked];
+    addMileageButton.enabled = [[DBSession sharedSession] isLinked];
 }
 
-- (void)linkDropbox {
-    if (![[DBSession sharedSession] isLinked]) {
-		[[DBSession sharedSession] linkFromController:self];
-    }
-    else {
-        [[DBSession sharedSession] unlinkAll];
-        [[[UIAlertView alloc] initWithTitle:@"Account Unlinked!"
-                                    message:@"Your dropbox account has been unlinked"
-                                   delegate:nil
-                          cancelButtonTitle:@"OK"
-                          otherButtonTitles:nil] show];
-        [self updateButtons];
-    }
-}
-
-- (void)isDropboxLinked:(id)sender
+- (void)dropboxLinkChanged:(id)sender
 {
     if ([[sender object] boolValue]) {
         restClient = [[DBRestClient alloc] initWithSession:[DBSession sharedSession]];
@@ -88,6 +72,8 @@
     else {
         restClient = nil;
     }
+    
+    [self updateButtons];
 }
 
 - (IBAction)takePicture:(id)sender

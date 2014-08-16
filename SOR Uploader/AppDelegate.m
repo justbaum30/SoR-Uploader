@@ -36,7 +36,7 @@
 {
     if ([[DBSession sharedSession] handleOpenURL:url]) {
         NSNumber *isDropboxLinked = [NSNumber numberWithBool:[[DBSession sharedSession] isLinked]];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"isDropboxLinked"
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"dropboxLinkChanged"
                                                             object:isDropboxLinked];
         return YES;
     }

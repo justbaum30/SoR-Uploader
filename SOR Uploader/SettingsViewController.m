@@ -10,6 +10,7 @@
 #import "UploadProfile.h"
 #import "UploadProfileStore.h"
 #import "EditProfileViewController.h"
+#import <DropboxSDK/DropboxSDK.h>
 
 NSString * const EditProfileSegue = @"EditProfileSegue";
 
@@ -34,7 +35,21 @@ NSString * const EditProfileSegue = @"EditProfileSegue";
 {
     [super viewDidLoad];
     
+    // Watch for dropbox link change
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(dropboxLinkChanged:)
+                                                 name:@"dropboxLinkChanged"
+                                               object:nil];
+    
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+
+#pragma mark - NSNotification
+
+- (void)dropboxLinkChanged:(id)sender
+{
+    [self.tableView reloadData];
 }
 
 
@@ -57,7 +72,7 @@ NSString * const EditProfileSegue = @"EditProfileSegue";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewBasicCell"
                                                             forIndexPath:indexPath];
     
     if (indexPath.section == 0) {
@@ -66,7 +81,13 @@ NSString * const EditProfileSegue = @"EditProfileSegue";
         [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     }
     else {
-        [[cell textLabel] setText:@"Link Account"];
+        // Conditionally set cell text
+        if ([[DBSession sharedSession] isLinked]) {
+            [[cell textLabel] setText:@"Unlink Account"];
+        }
+        else {
+            [[cell textLabel] setText:@"Link Account"];
+        }
         [cell setAccessoryType:UITableViewCellAccessoryNone];
     }
     
@@ -89,7 +110,20 @@ NSString * const EditProfileSegue = @"EditProfileSegue";
         [self performSegueWithIdentifier:EditProfileSegue sender:self];
     }
     else {
-        
+        if ([[DBSession sharedSession] isLinked]) {
+            // Unlink account
+            [[DBSession sharedSession] unlinkAll];
+            [[[UIAlertView alloc] initWithTitle:@"Account Unlinked!"
+                                        message:@"Your dropbox account has been unlinked"
+                                       delegate:nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil] show];
+            [self.tableView reloadData];
+        }
+        else {
+            // Link account
+            [[DBSession sharedSession] linkFromController:self];
+        }
     }
 }
 
@@ -103,12 +137,10 @@ NSString * const EditProfileSegue = @"EditProfileSegue";
                                                           target:self
                                                           action:@selector(addProfile:)];
         
-        self.navigationItem.leftBarButtonItem = self.editButtonItem;
-        self.navigationItem.rightBarButtonItem = addButton;
+        self.navigationItem.leftBarButtonItem = addButton;
     }
     else {
         self.navigationItem.leftBarButtonItem = nil;
-        self.navigationItem.rightBarButtonItem = self.editButtonItem;
     }
 }
 
