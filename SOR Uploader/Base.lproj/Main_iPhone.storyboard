@@ -155,16 +155,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="otI-d9-WAm">
-                                <rect key="frame" x="105" y="250" width="111" height="22"/>
+                            <pickerView contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="quI-GL-fut">
+                                <rect key="frame" x="0.0" y="64" width="320" height="162"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="62X-kQ-Kri"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="8K5-UO-vx7"/>
+                                </connections>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="otI-d9-WAm">
+                                <rect key="frame" x="105" y="270" width="111" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add Photo"/>
                                 <connections>
                                     <action selector="takePicture:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="HJi-le-RIx"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wii-dd-wX5">
-                                <rect key="frame" x="117" y="287" width="86" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wii-dd-wX5">
+                                <rect key="frame" x="117" y="308" width="86" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add Mileage">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -173,12 +181,19 @@
                                     <action selector="recordAudio:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="19W-hr-pSG"/>
                                 </connections>
                             </button>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="quI-GL-fut">
-                                <rect key="frame" x="0.0" y="65" width="320" height="162"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="quI-GL-fut" secondAttribute="trailing" id="0a7-iD-r2S"/>
+                            <constraint firstItem="Wii-dd-wX5" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="117" id="7wp-BU-TN5"/>
+                            <constraint firstItem="otI-d9-WAm" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="105" id="aGq-pX-BAY"/>
+                            <constraint firstItem="quI-GL-fut" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="bz9-VP-UO2"/>
+                            <constraint firstAttribute="trailing" secondItem="otI-d9-WAm" secondAttribute="trailing" constant="104" id="iDw-DI-uJG"/>
+                            <constraint firstItem="Wii-dd-wX5" firstAttribute="top" secondItem="otI-d9-WAm" secondAttribute="bottom" constant="8" id="oYK-co-5RQ"/>
+                            <constraint firstItem="otI-d9-WAm" firstAttribute="top" secondItem="quI-GL-fut" secondAttribute="bottom" constant="44" id="qG0-DL-yFt"/>
+                            <constraint firstAttribute="trailing" secondItem="Wii-dd-wX5" secondAttribute="trailing" constant="117" id="uij-sw-FqK"/>
+                            <constraint firstItem="quI-GL-fut" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="x3R-F8-fvU"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="SoR Uploader" id="XTQ-hX-n19">
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="lFG-lh-Bzj">
@@ -190,6 +205,7 @@
                     <connections>
                         <outlet property="addMileageButton" destination="Wii-dd-wX5" id="E7f-aN-Y2P"/>
                         <outlet property="addPhotoButton" destination="otI-d9-WAm" id="USA-dM-gfY"/>
+                        <outlet property="profilePicker" destination="quI-GL-fut" id="nba-Uk-EO0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

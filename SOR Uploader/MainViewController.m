@@ -7,9 +7,13 @@
 //
 
 #import "MainViewController.h"
+#import "UploadProfile.h"
+#import "UploadProfileStore.h"
 
 @interface MainViewController ()
 {
+    NSArray *profilePickerData;
+    UploadProfile *selectedProfile;
     DBRestClient *restClient;
 }
 
@@ -17,7 +21,7 @@
 
 @implementation MainViewController
 
-@synthesize addPhotoButton, addMileageButton;
+@synthesize profilePicker, addPhotoButton, addMileageButton;
 
 - (void)viewDidLoad
 {
@@ -45,6 +49,11 @@
 {
     [super viewWillAppear:animated];
     [self updateButtons];
+    
+    // Setup profile picker
+    profilePickerData = [[UploadProfileStore sharedStore] allProfiles];
+    selectedProfile = [profilePickerData objectAtIndex:[profilePicker selectedRowInComponent:0]];
+    [profilePicker reloadAllComponents];
 }
 
 - (void)updateButtons
@@ -108,12 +117,12 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     
     // Write to temp folder
     NSURL *tmpDirURL = [NSURL fileURLWithPath:NSTemporaryDirectory() isDirectory:YES];
-    NSURL *fileURL = [[tmpDirURL URLByAppendingPathComponent:@"SoR-image"] URLByAppendingPathExtension:@"jpg"];
+    NSURL *fileURL = [[tmpDirURL URLByAppendingPathComponent:@"receiptImage"] URLByAppendingPathExtension:@"jpg"];
     [imageData writeToURL:fileURL atomically:YES];
     
     // Upload to dropbox
-    [restClient uploadFile:@"SoR-image.jpg"
-                    toPath:@"/"
+    [restClient uploadFile:[self createFileName:YES]
+                    toPath:selectedProfile.receiptPath
              withParentRev:nil
                   fromPath:fileURL.path];
     
@@ -125,6 +134,53 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     
 }
+
+- (NSString *)createFileName:(BOOL)isImage
+{
+    NSString *profileName = [selectedProfile.name stringByReplacingOccurrencesOfString:@" "
+                                                                            withString:@"_"];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd_HH:mm:ss"];
+    NSString *timestamp = [formatter stringFromDate:[NSDate date]];
+    
+    if (isImage) {
+        return [NSString stringWithFormat:@"%@-%@.jpg", profileName, timestamp];
+    }
+    else {
+        return [NSString stringWithFormat:@"%@-%@.mp4", profileName, timestamp];
+    }
+}
+
+
+# pragma mark - UIPickerViewDelegate
+
+- (int)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return profilePickerData.count;
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView
+             titleForRow:(NSInteger)row
+            forComponent:(NSInteger)component
+{
+    UploadProfile *profile = [profilePickerData objectAtIndex:row];
+    return profile.name;
+}
+
+- (void)pickerView:(UIPickerView *)pickerView
+      didSelectRow:(NSInteger)row
+       inComponent:(NSInteger)component
+{
+    selectedProfile = [profilePickerData objectAtIndex:row];
+}
+
+
+# pragma mark - DBRestClientDelegate
 
 - (void)restClient:(DBRestClient *)client
       uploadedFile:(NSString *)destPath

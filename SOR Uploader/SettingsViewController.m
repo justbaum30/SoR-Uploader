@@ -38,7 +38,7 @@ NSString * const EditProfileSegue = @"EditProfileSegue";
 }
 
 
-#pragma mark - Table view data source
+#pragma mark - TableView dataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
