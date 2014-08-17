@@ -11,8 +11,8 @@
 @interface UploadProfile : NSObject <NSCoding>
 
 @property(copy) NSString *name;
-@property(copy) NSString *receiptPath;
-@property(copy) NSString *mileagePath;
+@property(copy, nonatomic) NSString *receiptPath;
+@property(copy, nonatomic) NSString *mileagePath;
 
 - (id)initWithName:(NSString *)aName
        ReceiptPath:(NSString *)aReceiptPath

@@ -22,12 +22,12 @@ NSString * const UploadProfilesKey = @"UploadProfiles";
 + (void)initialize
 {
     UploadProfile *profile1 = [[UploadProfile alloc] initWithName:@"Sons of Realty"
-                                                      ReceiptPath:@"/SoR-Receipt/"
-                                                      MileagePath:@"/SoR-Mileage/"];
+                                                      ReceiptPath:@"/SoR Receipt"
+                                                      MileagePath:@"/SoR Mileage"];
     
     UploadProfile *profile2 = [[UploadProfile alloc] initWithName:@"Brecken Construction"
-                                                      ReceiptPath:@"/Brecken-Receipt/"
-                                                      MileagePath:@"/Brecken-Mileage/"];
+                                                      ReceiptPath:@"/Brecken Receipt"
+                                                      MileagePath:@"/Brecken Mileage"];
     
     NSMutableArray *profiles = [[NSMutableArray alloc] initWithObjects:profile1, profile2, nil];
     NSData *encodedProfiles = [NSKeyedArchiver archivedDataWithRootObject:profiles];
@@ -55,8 +55,7 @@ NSString * const UploadProfilesKey = @"UploadProfiles";
 {
     self = [super init];
     if (self) {
-        NSData *encodedProfiles = [[NSUserDefaults standardUserDefaults] objectForKey:UploadProfilesKey];
-        allProfiles = (NSMutableArray *)[NSKeyedUnarchiver unarchiveObjectWithData:encodedProfiles];
+        allProfiles = [self getProfilesFromDevice];
     }
     return self;
 }
@@ -69,18 +68,35 @@ NSString * const UploadProfilesKey = @"UploadProfiles";
 - (void)addProfile:(UploadProfile *)profile
 {
     [allProfiles addObject:profile];
+    [self saveProfilesToDevice];
 }
 
 - (void)updateProfile:(UploadProfile *)profile
               atIndex:(NSUInteger)index
 {
     [allProfiles setObject:profile atIndexedSubscript:index];
+    [self saveProfilesToDevice];
 }
 
 - (void)removeProfileAtIndex:(NSUInteger)index
 {
     [allProfiles removeObjectAtIndex:index];
+    [self saveProfilesToDevice];
 }
 
+
+#pragma mark - Profile persistence
+
+- (void)saveProfilesToDevice
+{
+    NSData *encodedProfiles = [NSKeyedArchiver archivedDataWithRootObject:allProfiles];
+    [[NSUserDefaults standardUserDefaults] setObject:encodedProfiles forKey:UploadProfilesKey];
+}
+
+- (NSMutableArray *)getProfilesFromDevice
+{
+    NSData *encodedProfiles = [[NSUserDefaults standardUserDefaults] objectForKey:UploadProfilesKey];
+    return (NSMutableArray *)[NSKeyedUnarchiver unarchiveObjectWithData:encodedProfiles];
+}
 
 @end

@@ -25,6 +25,26 @@
     return self;
 }
 
+#pragma mark - Custom setters
+
+- (void)setReceiptPath:(NSString *)aReceiptPath
+{
+    if (![aReceiptPath hasPrefix:@"/"]) {
+        aReceiptPath = [NSString stringWithFormat:@"/%@", aReceiptPath];
+    }
+    receiptPath = aReceiptPath;
+}
+
+- (void)setMileagePath:(NSString *)aMileagePath
+{
+    if (![aMileagePath hasPrefix:@"/"]) {
+        aMileagePath = [NSString stringWithFormat:@"/%@", aMileagePath];
+    }
+    mileagePath = aMileagePath;
+}
+
+#pragma mark - Encode/Decode
+
 - (id)initWithCoder:(NSCoder *)decoder
 {
     self = [super init];
