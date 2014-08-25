@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="GLh-SK-s8R">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.8" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="GLh-SK-s8R">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment defaultVersion="1792" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
     </dependencies>
     <scenes>
-        <!--Settings View Controller - Settings-->
+        <!--Settings-->
         <scene sceneID="l9g-ci-M3R">
             <objects>
                 <tableViewController title="Settings" id="UBN-dJ-Rvk" customClass="SettingsViewController" sceneMemberID="viewController">
@@ -70,7 +71,37 @@
             </objects>
             <point key="canvasLocation" x="308" y="-859"/>
         </scene>
-        <!--Edit Profile View Controller - Edit Profile-->
+        <!--Add Mileage-->
+        <scene sceneID="8OX-2H-ELr">
+            <objects>
+                <viewController id="09x-TL-FpS" customClass="RecordAudioViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GWo-lt-eQg"/>
+                        <viewControllerLayoutGuide type="bottom" id="xTR-lK-k78"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TDc-b6-lkn">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add Mileage" id="t0R-eM-xZJ">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="1b3-Kk-BTE">
+                            <connections>
+                                <action selector="cancelRecord:" destination="09x-TL-FpS" id="2Ir-jY-UN9"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Upload" id="Ge9-kR-ThJ">
+                            <connections>
+                                <action selector="uploadRecord:" destination="09x-TL-FpS" id="cCk-fb-wMS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hzr-qc-oXn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="824" y="-111"/>
+        </scene>
+        <!--Edit Profile-->
         <scene sceneID="TFe-Uv-1cT">
             <objects>
                 <tableViewController id="oXn-us-B9y" customClass="EditProfileViewController" sceneMemberID="viewController">
@@ -90,7 +121,6 @@
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="My Profile Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sru-qM-eJv">
                                                     <rect key="frame" x="20" y="7" width="280" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
@@ -113,7 +143,6 @@
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="/ReceiptFolder/" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bhv-1c-1Xt">
                                                     <rect key="frame" x="20" y="7" width="280" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
@@ -136,7 +165,6 @@
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="/MileageFolder/" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LDb-px-Nfc">
                                                     <rect key="frame" x="20" y="7" width="280" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                     <connections>
@@ -176,7 +204,7 @@
             </objects>
             <point key="canvasLocation" x="1324" y="-859"/>
         </scene>
-        <!--Main View Controller - SoR Uploader-->
+        <!--SoR Uploader-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="MainViewController" sceneMemberID="viewController">
@@ -190,7 +218,6 @@
                         <subviews>
                             <pickerView contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="quI-GL-fut">
                                 <rect key="frame" x="0.0" y="64" width="320" height="162"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="dataSource" destination="vXZ-lx-hvc" id="62X-kQ-Kri"/>
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="8K5-UO-vx7"/>
@@ -198,7 +225,6 @@
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="otI-d9-WAm">
                                 <rect key="frame" x="105" y="270" width="111" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add Photo"/>
                                 <connections>
                                     <action selector="takePicture:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="HJi-le-RIx"/>
@@ -206,12 +232,12 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wii-dd-wX5">
                                 <rect key="frame" x="117" y="308" width="86" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add Mileage">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="recordAudio:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="19W-hr-pSG"/>
+                                    <segue destination="84H-kz-wXF" kind="modal" identifier="RecordAudioSegue" id="e3E-Tv-hXV"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -281,10 +307,31 @@
             </objects>
             <point key="canvasLocation" x="824" y="-859"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Kjr-TT-EPU">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="84H-kz-wXF" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7eP-93-9ev">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="09x-TL-FpS" kind="relationship" relationship="rootViewController" id="txe-NY-bGS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7zf-QT-FT4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="308" y="-111"/>
+        </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
+        <simulatedScreenMetrics key="destination" type="retina4">
+            <size key="portraitSize" width="320" height="568"/>
+            <size key="landscapeSize" width="568" height="320"/>
+        </simulatedScreenMetrics>
     </simulatedMetricsContainer>
 </document>

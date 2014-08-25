@@ -12,7 +12,7 @@
 #import "EditProfileViewController.h"
 #import <DropboxSDK/DropboxSDK.h>
 
-NSString * const EditProfileSegue = @"EditProfileSegue";
+#define EditProfileSegue @"EditProfileSegue"
 
 @interface SettingsViewController ()
 {
@@ -183,7 +183,7 @@ NSString * const EditProfileSegue = @"EditProfileSegue";
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:EditProfileSegue]) {
-        int selectedRow = [self.tableView indexPathForSelectedRow].row;
+        NSInteger selectedRow = [self.tableView indexPathForSelectedRow].row;
         UploadProfile *profile = [[[UploadProfileStore sharedStore] allProfiles] objectAtIndex:selectedRow];
         
         UINavigationController *navViewCtrl = (UINavigationController *)segue.destinationViewController;

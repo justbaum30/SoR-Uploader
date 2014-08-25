@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		580570A4199500D500D7FC47 /* UploadProfileStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 580570A3199500D500D7FC47 /* UploadProfileStore.m */; };
 		5874029A1994696600708EAF /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 587402991994696600708EAF /* EditProfileViewController.m */; };
+		58BDAB7919AAB7950047A100 /* RecordAudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58BDAB7819AAB7950047A100 /* RecordAudioViewController.m */; };
 		58C401B6199078DD009EF188 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58C401B5199078DD009EF188 /* SettingsViewController.m */; };
 		58C401B919908201009EF188 /* UploadProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 58C401B819908201009EF188 /* UploadProfile.m */; };
 		58F6AEC6198EAA0900CC110B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F6AEC5198EAA0900CC110B /* Foundation.framework */; };
@@ -48,6 +49,8 @@
 		580570A3199500D500D7FC47 /* UploadProfileStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadProfileStore.m; sourceTree = "<group>"; };
 		587402981994696600708EAF /* EditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProfileViewController.h; sourceTree = "<group>"; };
 		587402991994696600708EAF /* EditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
+		58BDAB7719AAB7950047A100 /* RecordAudioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordAudioViewController.h; sourceTree = "<group>"; };
+		58BDAB7819AAB7950047A100 /* RecordAudioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordAudioViewController.m; sourceTree = "<group>"; };
 		58C401B4199078DD009EF188 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		58C401B5199078DD009EF188 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		58C401B719908201009EF188 /* UploadProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadProfile.h; sourceTree = "<group>"; };
@@ -146,6 +149,8 @@
 				58F6AED5198EAA0900CC110B /* AppDelegate.m */,
 				58F6AF08198F1FDB00CC110B /* MainViewController.h */,
 				58F6AF09198F1FDB00CC110B /* MainViewController.m */,
+				58BDAB7719AAB7950047A100 /* RecordAudioViewController.h */,
+				58BDAB7819AAB7950047A100 /* RecordAudioViewController.m */,
 				58C401B4199078DD009EF188 /* SettingsViewController.h */,
 				58C401B5199078DD009EF188 /* SettingsViewController.m */,
 				587402981994696600708EAF /* EditProfileViewController.h */,
@@ -296,6 +301,7 @@
 				58F6AED2198EAA0900CC110B /* main.m in Sources */,
 				58C401B6199078DD009EF188 /* SettingsViewController.m in Sources */,
 				58C401B919908201009EF188 /* UploadProfile.m in Sources */,
+				58BDAB7919AAB7950047A100 /* RecordAudioViewController.m in Sources */,
 				580570A4199500D500D7FC47 /* UploadProfileStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

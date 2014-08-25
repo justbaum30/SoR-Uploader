@@ -10,6 +10,8 @@
 #import "UploadProfile.h"
 #import "UploadProfileStore.h"
 
+#define RecordAudioSegue @"RecordAudioSegue"
+
 @interface MainViewController ()
 {
     NSArray *profilePickerData;
@@ -57,6 +59,9 @@
     [profilePicker reloadAllComponents];
 }
 
+
+# pragma mark - Dropbox status methods
+
 - (void)updateButtons
 {
     addPhotoButton.enabled = [[DBSession sharedSession] isLinked];
@@ -75,6 +80,9 @@
     
     [self updateButtons];
 }
+
+
+# pragma mark - Upload actions
 
 - (IBAction)takePicture:(id)sender
 {
