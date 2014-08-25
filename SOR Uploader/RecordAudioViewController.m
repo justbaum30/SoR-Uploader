@@ -17,14 +17,13 @@
 
 @implementation RecordAudioViewController
 
-@synthesize tempPathUrl, recordButton, stopButton, playButton;
+@synthesize tempPathUrl, recordStopButton, playButton;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     // Initialize button appearance
-    [stopButton setEnabled:NO];
     [playButton setEnabled:NO];
     
     AVAudioSession *audioSession = [AVAudioSession sharedInstance];
@@ -45,48 +44,6 @@
     [audioRecorder prepareToRecord];
 }
 
-- (IBAction)recordTapped:(id)sender
-{
-    // Stop playing before recording
-    if (audioPlayer.isPlaying) {
-        [audioPlayer stop];
-    }
-    
-    // If already recording, pause and update button
-    if (audioRecorder.isRecording) {
-        [audioRecorder pause];
-        [recordButton setTitle:@"Record" forState:UIControlStateNormal];
-    }
-    // Else record audio
-    else {
-        AVAudioSession *audioSession = [AVAudioSession sharedInstance];
-        [audioSession setActive:YES error:nil];
-        
-        [audioRecorder record];
-        [recordButton setTitle:@"Pause" forState:UIControlStateNormal];
-    }
-    
-    [stopButton setEnabled:YES];
-    [playButton setEnabled:NO];
-}
-
-- (IBAction)stopTapped:(id)sender
-{
-    [audioRecorder stop];
-    
-    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
-    [audioSession setActive:NO error:nil];
-}
-
-- (IBAction)playTapped:(id)sender
-{
-    if (!audioRecorder.isRecording) {
-        audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:tempPathUrl error:nil];
-        audioPlayer.delegate = self;
-        [audioPlayer play];
-    }
-}
-
 - (IBAction)cancelRecord:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -94,7 +51,50 @@
 
 - (IBAction)uploadRecord:(id)sender
 {
+    self.recordingWasSaved();
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+# pragma mark - AVAudio actions
+
+- (IBAction)toggleRecording:(id)sender
+{
+    // Stop playing before recording
+    if (audioPlayer.isPlaying) {
+        [audioPlayer stop];
+    }
+    
+    // If already recording, stop and update button
+    if (audioRecorder.isRecording) {
+        [audioRecorder stop];
+        [recordStopButton setTitle:@"Record" forState:UIControlStateNormal];
+        
+        AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+        [audioSession setActive:NO error:nil];
+    }
+    // Otherwise record audio
+    else {
+        AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+        [audioSession setActive:YES error:nil];
+        
+        [audioRecorder record];
+        [recordStopButton setTitle:@"Stop" forState:UIControlStateNormal];
+    }
+    
+    [playButton setEnabled:NO];
+    self.navigationItem.rightBarButtonItem.enabled = NO;
+}
+
+- (IBAction)playRecording:(id)sender
+{
+    if (!audioRecorder.isRecording) {
+        audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:tempPathUrl error:nil];
+        audioPlayer.delegate = self;
+        [audioPlayer play];
+        
+        [playButton setEnabled:NO];
+    }
 }
 
 
@@ -102,10 +102,9 @@
 
 - (void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag
 {
-    [recordButton setTitle:@"Record" forState:UIControlStateNormal];
-    
-    [stopButton setEnabled:NO];
+    [recordStopButton setTitle:@"Record" forState:UIControlStateNormal];
     [playButton setEnabled:YES];
+    self.navigationItem.rightBarButtonItem.enabled = YES;
 }
 
 
@@ -113,12 +112,7 @@
 
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Done"
-                                                    message: @"Finish playing the recording!"
-                                                   delegate: nil
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    [alert show];
+    [playButton setEnabled:YES];
 }
 
 @end

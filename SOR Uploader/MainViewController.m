@@ -142,7 +142,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         return [NSString stringWithFormat:@"%@-%@.jpg", profileName, timestamp];
     }
     else {
-        return [NSString stringWithFormat:@"%@-%@.mp4", profileName, timestamp];
+        return [NSString stringWithFormat:@"%@-%@.m4a", profileName, timestamp];
     }
 }
 
@@ -206,7 +206,12 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
         [recordViewCtrl setTempPathUrl:fileURL];
         
         // Upload on completion
-        NSString *mileagePath = [selectedProfile mileagePath];
+        [recordViewCtrl setRecordingWasSaved: ^() {
+            [restClient uploadFile:[self createFileName:NO]
+                            toPath:selectedProfile.mileagePath
+                     withParentRev:nil
+                          fromPath:fileURL.path];
+        }];
     }
 }
 

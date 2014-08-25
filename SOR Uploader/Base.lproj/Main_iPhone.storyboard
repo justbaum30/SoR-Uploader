@@ -89,25 +89,16 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="recordTapped:" destination="09x-TL-FpS" eventType="touchUpInside" id="rSQ-tJ-4Kb"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYb-ri-Amn">
-                                <rect key="frame" x="137" y="192" width="46" height="30"/>
-                                <state key="normal" title="Stop">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="stopTapped:" destination="09x-TL-FpS" eventType="touchUpInside" id="S7M-Gh-vc6"/>
+                                    <action selector="toggleRecording:" destination="09x-TL-FpS" eventType="touchUpInside" id="d6B-Mh-OkG"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8zp-z4-SPU">
-                                <rect key="frame" x="137" y="230" width="46" height="30"/>
+                                <rect key="frame" x="137" y="198" width="46" height="30"/>
                                 <state key="normal" title="Play">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="playTapped:" destination="09x-TL-FpS" eventType="touchUpInside" id="b2F-or-bWV"/>
+                                    <action selector="playRecording:" destination="09x-TL-FpS" eventType="touchUpInside" id="vc5-CD-7q2"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -119,7 +110,7 @@
                                 <action selector="cancelRecord:" destination="09x-TL-FpS" id="2Ir-jY-UN9"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Upload" id="Ge9-kR-ThJ">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Upload" id="Ge9-kR-ThJ">
                             <connections>
                                 <action selector="uploadRecord:" destination="09x-TL-FpS" id="cCk-fb-wMS"/>
                             </connections>
@@ -127,8 +118,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="playButton" destination="8zp-z4-SPU" id="X5N-It-CTN"/>
-                        <outlet property="recordButton" destination="2lv-Wv-eDR" id="e8y-hE-J8M"/>
-                        <outlet property="stopButton" destination="HYb-ri-Amn" id="VJu-tH-Mx6"/>
+                        <outlet property="recordStopButton" destination="2lv-Wv-eDR" id="RKg-9P-t8T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hzr-qc-oXn" userLabel="First Responder" sceneMemberID="firstResponder"/>

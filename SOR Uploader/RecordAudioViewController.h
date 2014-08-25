@@ -12,14 +12,13 @@
 @interface RecordAudioViewController : UIViewController <AVAudioRecorderDelegate, AVAudioPlayerDelegate>
 
 @property NSURL *tempPathUrl;
-@property (weak, nonatomic) IBOutlet UIButton *recordButton;
-@property (weak, nonatomic) IBOutlet UIButton *stopButton;
+@property (weak, nonatomic) IBOutlet UIButton *recordStopButton;
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
 
-- (IBAction)recordTapped:(id)sender;
-- (IBAction)stopTapped:(id)sender;
-- (IBAction)playTapped:(id)sender;
+@property (nonatomic, copy) void (^recordingWasSaved)();
 
+- (IBAction)toggleRecording:(id)sender;
+- (IBAction)playRecording:(id)sender;
 - (IBAction)cancelRecord:(id)sender;
 - (IBAction)uploadRecord:(id)sender;
 
