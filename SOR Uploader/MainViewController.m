@@ -140,7 +140,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 
 # pragma mark - UIPickerViewDelegate
 
-- (int)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
     return 1;
 }
