@@ -10,6 +10,7 @@
 		580570A4199500D500D7FC47 /* UploadProfileStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 580570A3199500D500D7FC47 /* UploadProfileStore.m */; };
 		5874029A1994696600708EAF /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 587402991994696600708EAF /* EditProfileViewController.m */; };
 		58BDAB7919AAB7950047A100 /* RecordAudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58BDAB7819AAB7950047A100 /* RecordAudioViewController.m */; };
+		58BDAB7B19AABBCF0047A100 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58BDAB7A19AABBCF0047A100 /* AVFoundation.framework */; };
 		58C401B6199078DD009EF188 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58C401B5199078DD009EF188 /* SettingsViewController.m */; };
 		58C401B919908201009EF188 /* UploadProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 58C401B819908201009EF188 /* UploadProfile.m */; };
 		58F6AEC6198EAA0900CC110B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58F6AEC5198EAA0900CC110B /* Foundation.framework */; };
@@ -51,6 +52,7 @@
 		587402991994696600708EAF /* EditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
 		58BDAB7719AAB7950047A100 /* RecordAudioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordAudioViewController.h; sourceTree = "<group>"; };
 		58BDAB7819AAB7950047A100 /* RecordAudioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordAudioViewController.m; sourceTree = "<group>"; };
+		58BDAB7A19AABBCF0047A100 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		58C401B4199078DD009EF188 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		58C401B5199078DD009EF188 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		58C401B719908201009EF188 /* UploadProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadProfile.h; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58BDAB7B19AABBCF0047A100 /* AVFoundation.framework in Frameworks */,
 				58F6AF03198EAABE00CC110B /* QuartzCore.framework in Frameworks */,
 				58F6AF01198EAAB900CC110B /* Security.framework in Frameworks */,
 				58F6AEFE198EAA4000CC110B /* DropboxSDK.framework in Frameworks */,
@@ -131,6 +134,7 @@
 		58F6AEC4198EAA0900CC110B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				58BDAB7A19AABBCF0047A100 /* AVFoundation.framework */,
 				58F6AF02198EAABE00CC110B /* QuartzCore.framework */,
 				58F6AF00198EAAB900CC110B /* Security.framework */,
 				58F6AEFD198EAA4000CC110B /* DropboxSDK.framework */,
@@ -244,6 +248,13 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Justin Baumgartner";
 				TargetAttributes = {
+					58F6AEC1198EAA0900CC110B = {
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+						};
+					};
 					58F6AEE5198EAA0900CC110B = {
 						TestTargetID = 58F6AEC1198EAA0900CC110B;
 					};

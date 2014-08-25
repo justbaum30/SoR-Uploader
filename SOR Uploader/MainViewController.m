@@ -7,6 +7,7 @@
 //
 
 #import "MainViewController.h"
+#import "RecordAudioViewController.h"
 #import "UploadProfile.h"
 #import "UploadProfileStore.h"
 
@@ -126,7 +127,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 
 - (IBAction)recordAudio:(id)sender
 {
-    
+    [self performSegueWithIdentifier:RecordAudioSegue sender:self];
 }
 
 - (NSString *)createFileName:(BOOL)isImage
@@ -187,6 +188,26 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 - (void)restClient:(DBRestClient *)client uploadFileFailedWithError:(NSError *)error
 {
     NSLog(@"File upload failed with error: %@", error);
+}
+
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:RecordAudioSegue]) {
+        // Temporary file location until can upload
+        NSURL *tmpDirURL = [NSURL fileURLWithPath:NSTemporaryDirectory() isDirectory:YES];
+        NSURL *fileURL = [[tmpDirURL URLByAppendingPathComponent:@"mileageAudio"] URLByAppendingPathExtension:@"m4a"];
+        
+        UINavigationController *navViewCtrl = (UINavigationController *)segue.destinationViewController;
+        RecordAudioViewController *recordViewCtrl = (RecordAudioViewController *)navViewCtrl.topViewController;
+        
+        [recordViewCtrl setTempPathUrl:fileURL];
+        
+        // Upload on completion
+        NSString *mileagePath = [selectedProfile mileagePath];
+    }
 }
 
 @end

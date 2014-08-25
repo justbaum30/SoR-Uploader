@@ -82,6 +82,35 @@
                     <view key="view" contentMode="scaleToFill" id="TDc-b6-lkn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2lv-Wv-eDR">
+                                <rect key="frame" x="128" y="154" width="64" height="30"/>
+                                <state key="normal" title="Record">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="recordTapped:" destination="09x-TL-FpS" eventType="touchUpInside" id="rSQ-tJ-4Kb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYb-ri-Amn">
+                                <rect key="frame" x="137" y="192" width="46" height="30"/>
+                                <state key="normal" title="Stop">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="stopTapped:" destination="09x-TL-FpS" eventType="touchUpInside" id="S7M-Gh-vc6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8zp-z4-SPU">
+                                <rect key="frame" x="137" y="230" width="46" height="30"/>
+                                <state key="normal" title="Play">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playTapped:" destination="09x-TL-FpS" eventType="touchUpInside" id="b2F-or-bWV"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add Mileage" id="t0R-eM-xZJ">
@@ -96,6 +125,11 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="playButton" destination="8zp-z4-SPU" id="X5N-It-CTN"/>
+                        <outlet property="recordButton" destination="2lv-Wv-eDR" id="e8y-hE-J8M"/>
+                        <outlet property="stopButton" destination="HYb-ri-Amn" id="VJu-tH-Mx6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hzr-qc-oXn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -237,7 +271,6 @@
                                 </state>
                                 <connections>
                                     <action selector="recordAudio:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="19W-hr-pSG"/>
-                                    <segue destination="84H-kz-wXF" kind="modal" identifier="RecordAudioSegue" id="e3E-Tv-hXV"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -265,6 +298,7 @@
                         <outlet property="addMileageButton" destination="Wii-dd-wX5" id="E7f-aN-Y2P"/>
                         <outlet property="addPhotoButton" destination="otI-d9-WAm" id="USA-dM-gfY"/>
                         <outlet property="profilePicker" destination="quI-GL-fut" id="nba-Uk-EO0"/>
+                        <segue destination="84H-kz-wXF" kind="modal" identifier="RecordAudioSegue" id="j0f-s4-9OR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
